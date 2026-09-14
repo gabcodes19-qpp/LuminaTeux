@@ -1,3 +1,13 @@
+# LuminaTeux
+
+> ⚡ A rebranded fork of [Termux](https://github.com/termux/termux-app) — an
+> Android terminal emulator and Linux environment — with an iOS-style
+> module/AI store, one-tap Linux environments, and a Material You redesign.
+> Licensed under **GPLv3** (see [LICENSE.md](LICENSE.md)); upstream credit
+> retained in git history.
+
+---
+
 # Termux application
 
 [![Build status](https://github.com/termux/termux-app/workflows/Build/badge.svg)](https://github.com/termux/termux-app/actions)
