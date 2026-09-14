@@ -5,6 +5,18 @@ Linux terminal — with a one-tap module/AI store instead of `pkg install` typin
 
 ---
 
+## ⚠️ Why the package stays `com.termux` (important)
+
+The entire Linux environment (`bash`, `coreutils`, `pkg`, and ~2,000 packages) is
+compiled against the hardcoded prefix `/data/data/com.termux/files/usr`. Renaming the
+Android package moves the app's files dir, which breaks every binary instantly.
+A real rename = recompiling the whole package repo for a new prefix + self-hosting a
+package mirror (a months-long infra project; even upstream keeps `com.termux`).
+**Pragmatic approach (used here):** keep `com.termux` internally, make everything
+user-facing unique — name, icon, branding, dev tag.
+
+---
+
 ## ⚖️ Ground rules (legal, non-negotiable)
 
 - Termux is licensed **GPLv3**. You may fork, modify, rename, and rebrand it.
@@ -32,6 +44,10 @@ Linux terminal — with a one-tap module/AI store instead of `pkg install` typin
 - **Tabs / session manager** ✅ *v1.3: drawer sessions header with live count + one-tap "+ New" tab*
 - **Guided setup wizard** ✅ *v1.3: `LuminaWizardActivity` — category bundles on first run*
 - **Backup/restore** ✅ *v1.3: `LuminaBackupActivity` — tarball of configs + package list*
+- **Unique app icon** ✅ *v1.4: white sparkle mark on indigo→cyan gradient (replaces the `>_` glyph)*
+- **`lumina` help command** ✅ *v1.4: shell command documenting features + `lumina backup`*
+- **Design pass** ✅ *v1.4: gradient store header, category chips, dev-build badge*
+- **Dev build tag** ✅ *v1.4: versionName `1.4.0-dev`*
 - **Guided setup wizard** — "What are you here for?" (Coding / Web dev / Networking / Security / Automation) → auto-installs the matching bundle
 - **One-tap AI CLIs:**
   | CLI | Runtime | Install path in Termux | Free providers |

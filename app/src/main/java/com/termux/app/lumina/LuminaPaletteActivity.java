@@ -72,6 +72,8 @@ public class LuminaPaletteActivity extends AppCompatActivity {
                 getString(R.string.lumina_palette_settings_sub), new Intent(this, LuminaSettingsActivity.class)));
         allActions.add(new Action(getString(R.string.lumina_palette_backup),
                 getString(R.string.lumina_palette_backup_sub), new Intent(this, LuminaBackupActivity.class)));
+        allActions.add(new Action(getString(R.string.lumina_palette_help),
+                getString(R.string.lumina_palette_help_sub), new Intent(this, LuminaHelpActivity.class)));
         allActions.add(new Action(getString(R.string.lumina_palette_update), "pkg update -y",
                 new String[]{"pkg update -y"}));
         allActions.add(new Action(getString(R.string.lumina_palette_upgrade), "pkg upgrade -y",

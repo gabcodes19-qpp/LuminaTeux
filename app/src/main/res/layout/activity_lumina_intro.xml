@@ -43,6 +43,20 @@
             android:textColor="#A5F3FC" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@drawable/lumina_chip_white"
+            android:text="@string/lumina_dev_badge"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#4F46E5" />
+
+        <TextView
             android:id="@+id/lumina_intro_banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -55,9 +55,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:background="@drawable/lumina_chip"
             android:textSize="11sp"
             android:textStyle="bold"
-            android:textColor="?attr/colorSecondary" />
+            android:textAllCaps="true"
+            android:textColor="#A5B4FC" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/lumina_item_button"

@@ -258,6 +258,7 @@
     <string name="lumina_intro_features">•  One-tap modules &amp; packages\n•  AI agents — Gemini CLI, opencode, Zen\n•  Proot Linux — Ubuntu, Kali, Arch\n•  Material You — dark-first design</string>
     <string name="lumina_intro_start">Get started</string>
     <string name="lumina_intro_credit">Built on open-source Termux · GPLv3</string>
+    <string name="lumina_dev_badge">DEV BUILD · v1.4.0</string>
 
     <!-- LuminaTeux Settings -->
     <string name="lumina_settings_title">Lumina settings</string>
@@ -293,6 +294,13 @@
     <string name="lumina_palette_upgrade">Upgrade packages</string>
     <string name="lumina_palette_neofetch">System info</string>
     <string name="lumina_palette_ubuntu">Open Ubuntu shell</string>
+
+    <!-- LuminaTeux Help -->
+    <string name="lumina_palette_help">Help</string>
+    <string name="lumina_palette_help_sub">Features &amp; useful commands</string>
+    <string name="lumina_help_title">Help</string>
+    <string name="lumina_help_subtitle">Everything LuminaTeux can do</string>
+    <string name="lumina_help_body">LUMINATEUX HELP\n===============\n\nIN-APP (swipe from the left edge to open the drawer):\n  [Search]  Command palette — type any action or command\n  [Store]   One-tap packages, AI CLIs and proot Linux\n  [Tune]    Settings — dynamic colors + terminal theme\n\nAI ASSISTANTS (install from the Store):\n  gemini     Google Gemini CLI (free AI Studio key)\n  opencode   Open-source AI coding agent\n\nPROOT LINUX (install from the Store, then):\n  proot-distro login ubuntu    enter Ubuntu\n  proot-distro login kali      enter Kali\n  proot-distro list            list installed distros\n\nUSEFUL COMMANDS:\n  pkg update &amp;&amp; pkg upgrade     update everything\n  pkg install &lt;name&gt;            install a package\n  pkg list-installed            what is installed\n  neofetch                      system info\n  termux-change-repo            switch package mirror\n  termux-setup-storage          access phone storage\n\nBACKUP:\n  lumina backup    save config to ~/lumateux-backup-latest.tar.gz</string>
 
     <!-- LuminaTeux Setup wizard -->
     <string name="lumina_wizard_title">Welcome to LuminaTeux</string>

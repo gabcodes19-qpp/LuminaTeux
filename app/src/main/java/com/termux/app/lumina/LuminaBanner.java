@@ -26,7 +26,7 @@ public final class LuminaBanner {
         "\n" +
         "   LuminaTeux - your terminal, elevated\n" +
         "   one-tap modules | AI agents | proot Linux\n" +
-        "   Type 'help' to get started\n";
+        "   Type 'lumina help' for tips & features\n";
 
     /** LuminaTeux dark terminal scheme (indigo/cyan on deep navy). */
     private static final String COLORS_PROPERTIES =
@@ -60,10 +60,11 @@ public final class LuminaBanner {
 
     private LuminaBanner() {}
 
-    /** Install motd + terminal theme. Non-destructive unless {@code force} is set. */
+    /** Install motd + terminal theme + help command. Non-destructive unless {@code force} is set. */
     public static void installAll(boolean force) {
         installMotd();
         installTerminalTheme(force);
+        installHelpCommand();
     }
 
     /** Write the ASCII banner into the Termux prefix motd (no-op until bootstrap exists). */
@@ -119,6 +120,71 @@ public final class LuminaBanner {
             Logger.logWarn(LOG_TAG, "Failed to remove terminal theme: " + e.getMessage());
         }
     }
+
+    /** Write the 'lumina' shell command documenting the app's features. */
+    public static void installHelpCommand() {
+        try {
+            File prefix = new File(TermuxConstants.TERMUX_PREFIX_DIR_PATH);
+            if (!prefix.isDirectory()) {
+                return;
+            }
+            File bin = new File(TermuxConstants.TERMUX_BIN_PREFIX_DIR_PATH);
+            if (!bin.isDirectory() && !bin.mkdirs()) {
+                return;
+            }
+            String shPath = TermuxConstants.TERMUX_BIN_PREFIX_DIR_PATH + "/sh";
+            StringBuilder script = new StringBuilder();
+            script.append("#!").append(shPath).append("\n");
+            script.append("# LuminaTeux helper command\n");
+            script.append("case \"${1:-help}\" in\n");
+            script.append("  backup)\n");
+            script.append("    cd \"$HOME\" && tar -czf lumateux-backup-latest.tar.gz .termux .config .bashrc .profile .zshrc 2>/dev/null\n");
+            script.append("    echo \"Backup saved to ~/lumateux-backup-latest.tar.gz\"\n");
+            script.append("    ;;\n");
+            script.append("  help|*)\n");
+            script.append("    cat << 'EOF'\n");
+            script.append(HELP_TEXT);
+            script.append("EOF\n");
+            script.append("    ;;\n");
+            script.append("esac\n");
+
+            File file = new File(bin, "lumina");
+            write(file, script.toString());
+            file.setExecutable(true, false);
+            Logger.logInfo(LOG_TAG, "Installed 'lumina' help command at " + file.getAbsolutePath());
+        } catch (Exception e) {
+            Logger.logWarn(LOG_TAG, "Failed to install 'lumina' command: " + e.getMessage());
+        }
+    }
+
+    private static final String HELP_TEXT =
+        "LUMINATEUX HELP\n" +
+        "===============\n" +
+        "\n" +
+        "IN-APP (swipe from the left edge to open the drawer):\n" +
+        "  [Search] Command palette - type any action or command\n" +
+        "  [Store]  One-tap packages, AI CLIs and proot Linux\n" +
+        "  [Tune]   Settings - dynamic colors + terminal theme\n" +
+        "\n" +
+        "AI ASSISTANTS (install from the Store):\n" +
+        "  gemini     Google Gemini CLI (free AI Studio key)\n" +
+        "  opencode   Open-source AI coding agent\n" +
+        "\n" +
+        "PROOT LINUX (install from the Store, then):\n" +
+        "  proot-distro login ubuntu    enter Ubuntu\n" +
+        "  proot-distro login kali      enter Kali\n" +
+        "  proot-distro list            list installed distros\n" +
+        "\n" +
+        "USEFUL COMMANDS:\n" +
+        "  pkg update && pkg upgrade     update everything\n" +
+        "  pkg install <name>            install a package\n" +
+        "  pkg list-installed            what is installed\n" +
+        "  neofetch                      system info\n" +
+        "  termux-change-repo            switch package mirror\n" +
+        "  termux-setup-storage          access phone storage\n" +
+        "\n" +
+        "BACKUP:\n" +
+        "  lumina backup    save config to ~/lumateux-backup-latest.tar.gz\n";
 
     private static void write(File file, String content) throws Exception {
         File parent = file.getParentFile();
