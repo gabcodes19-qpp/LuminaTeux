@@ -46,4 +46,12 @@
         <item name="extraKeysButtonActiveBackgroundColor">@color/grey_500</item>
     </style>
 
+    <!-- LuminaTeux Store: Material Components DayNight with indigo/cyan accents. -->
+    <style name="Theme.LuminaStore.DayNight.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/lumina_indigo</item>
+        <item name="colorPrimaryVariant">@color/lumina_indigo_dark</item>
+        <item name="colorSecondary">@color/lumina_cyan</item>
+        <item name="colorSecondaryVariant">@color/lumina_cyan_dark</item>
+    </style>
+
 </resources>

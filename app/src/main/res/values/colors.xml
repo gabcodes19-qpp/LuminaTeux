@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- LuminaTeux brand palette -->
+    <color name="lumina_indigo">#4F46E5</color>
+    <color name="lumina_indigo_dark">#3730A3</color>
+    <color name="lumina_cyan">#06B6D4</color>
+    <color name="lumina_cyan_dark">#0891B2</color>
 </resources>

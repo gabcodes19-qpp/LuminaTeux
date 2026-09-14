@@ -235,4 +235,21 @@
     <!-- Donate Preference -->
     <string name="donate_preference_title">Donate</string>
 
+    <!-- LuminaTeux Store -->
+    <string name="title_activity_lumina_store">Store</string>
+    <string name="lumina_store_header">One-tap modules &amp; AI</string>
+    <string name="lumina_store_subtitle">Install packages and AI CLIs without typing a single command</string>
+    <string name="lumina_action_install">Install</string>
+    <string name="lumina_action_soon">Soon</string>
+    <string name="lumina_action_open_store">Open Store</string>
+    <string name="lumina_install_confirm_title">Install %1$s?</string>
+    <string name="lumina_install_confirm_message">This will run:\n\n%1$s</string>
+    <string name="lumina_action_installing">Installing %1$s…</string>
+    <string name="lumina_install_ok">Install</string>
+    <string name="lumina_install_cancel">Cancel</string>
+    <string name="lumina_install_done">✓ Installation finished.</string>
+    <string name="lumina_install_failed">✗ Installation failed. See log above.</string>
+    <string name="lumina_close">Close</string>
+    <string name="lumina_busy">Another install is still running.</string>
+
 </resources>

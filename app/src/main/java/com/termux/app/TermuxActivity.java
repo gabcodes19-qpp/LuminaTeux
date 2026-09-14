@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.termux.R;
 import com.termux.app.api.file.FileReceiverActivity;
+import com.termux.app.lumina.LuminaStoreActivity;
 import com.termux.app.terminal.TermuxActivityRootView;
 import com.termux.app.terminal.TermuxTerminalSessionActivityClient;
 import com.termux.app.terminal.io.TermuxTerminalExtraKeys;
@@ -246,6 +247,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         setTerminalToolbarView(savedInstanceState);
 
         setSettingsButtonView();
+        setStoreButtonView();
 
         setNewSessionButtonView();
 
@@ -567,6 +569,14 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         ImageButton settingsButton = findViewById(R.id.settings_button);
         settingsButton.setOnClickListener(v -> {
             ActivityUtils.startActivity(this, new Intent(this, SettingsActivity.class));
+        });
+    }
+
+    private void setStoreButtonView() {
+        ImageButton storeButton = findViewById(R.id.store_button);
+        storeButton.setOnClickListener(v -> {
+            getDrawer().closeDrawers();
+            ActivityUtils.startActivity(this, new Intent(this, LuminaStoreActivity.class));
         });
     }
 
