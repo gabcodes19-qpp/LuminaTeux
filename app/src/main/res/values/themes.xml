@@ -54,4 +54,13 @@
         <item name="colorSecondaryVariant">@color/lumina_cyan_dark</item>
     </style>
 
+    <!-- LuminaTeux Intro: branded splash over a gradient window background. -->
+    <style name="Theme.LuminaIntro.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/lumina_gradient</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="colorPrimary">@color/lumina_indigo</item>
+        <item name="colorSecondary">@color/lumina_cyan</item>
+    </style>
+
 </resources>

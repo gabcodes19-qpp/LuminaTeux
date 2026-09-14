@@ -22,6 +22,7 @@ import com.termux.R;
 import com.termux.app.event.SystemEventReceiver;
 import com.termux.app.terminal.TermuxTerminalSessionActivityClient;
 import com.termux.app.terminal.TermuxTerminalSessionServiceClient;
+import com.termux.app.lumina.LuminaBanner;
 import com.termux.shared.termux.plugins.TermuxPluginUtils;
 import com.termux.shared.data.IntentUtils;
 import com.termux.shared.net.uri.UriUtils;
@@ -129,6 +130,9 @@ public final class TermuxService extends Service implements AppShell.AppShellCli
 
         // Run again in case service is already started and onCreate() is not called
         runStartForeground();
+
+        // LuminaTeux: (re)install the terminal welcome banner (motd) in the background.
+        new Thread(LuminaBanner::installMotd, "LuminaMotd").start();
 
         String action = null;
         if (intent != null) {

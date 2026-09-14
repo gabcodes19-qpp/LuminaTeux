@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.termux.R;
 import com.termux.app.api.file.FileReceiverActivity;
+import com.termux.app.lumina.LuminaBanner;
 import com.termux.app.lumina.LuminaStoreActivity;
 import com.termux.app.terminal.TermuxActivityRootView;
 import com.termux.app.terminal.TermuxTerminalSessionActivityClient;
@@ -401,6 +402,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
                 TermuxInstaller.setupBootstrapIfNeeded(TermuxActivity.this, () -> {
                     if (mTermuxService == null) return; // Activity might have been destroyed.
                     try {
+                        LuminaBanner.installMotd();
                         boolean launchFailsafe = false;
                         if (intent != null && intent.getExtras() != null) {
                             launchFailsafe = intent.getExtras().getBoolean(TERMUX_ACTIVITY.EXTRA_FAILSAFE_SESSION, false);

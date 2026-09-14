@@ -2,7 +2,7 @@
 
 <!DOCTYPE resources [
     <!ENTITY TERMUX_PACKAGE_NAME "com.termux">
-    <!ENTITY TERMUX_APP_NAME "Termux">
+    <!ENTITY TERMUX_APP_NAME "LuminaTeux">
     <!ENTITY TERMUX_API_APP_NAME "Termux:API">
     <!ENTITY TERMUX_BOOT_APP_NAME "Termux:Boot">
     <!ENTITY TERMUX_FLOAT_APP_NAME "Termux:Float">
@@ -251,5 +251,12 @@
     <string name="lumina_install_failed">✗ Installation failed. See log above.</string>
     <string name="lumina_close">Close</string>
     <string name="lumina_busy">Another install is still running.</string>
+
+    <!-- LuminaTeux Intro -->
+    <string name="lumina_intro_title">LuminaTeux</string>
+    <string name="lumina_intro_tagline">Your terminal, elevated.</string>
+    <string name="lumina_intro_features">•  One-tap modules &amp; packages\n•  AI agents — Gemini CLI, opencode, Zen\n•  Proot Linux — Ubuntu, Kali, Arch\n•  Material You — dark-first design</string>
+    <string name="lumina_intro_start">Get started</string>
+    <string name="lumina_intro_credit">Built on open-source Termux · GPLv3</string>
 
 </resources>
