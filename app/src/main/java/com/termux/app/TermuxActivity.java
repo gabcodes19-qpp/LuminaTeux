@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.termux.R;
 import com.termux.app.api.file.FileReceiverActivity;
 import com.termux.app.lumina.LuminaBanner;
+import com.termux.app.lumina.LuminaSettingsActivity;
 import com.termux.app.lumina.LuminaStoreActivity;
 import com.termux.app.terminal.TermuxActivityRootView;
 import com.termux.app.terminal.TermuxTerminalSessionActivityClient;
@@ -249,6 +250,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
 
         setSettingsButtonView();
         setStoreButtonView();
+        setLuminaSettingsButtonView();
 
         setNewSessionButtonView();
 
@@ -402,7 +404,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
                 TermuxInstaller.setupBootstrapIfNeeded(TermuxActivity.this, () -> {
                     if (mTermuxService == null) return; // Activity might have been destroyed.
                     try {
-                        LuminaBanner.installMotd();
+                        LuminaBanner.installAll(false);
                         boolean launchFailsafe = false;
                         if (intent != null && intent.getExtras() != null) {
                             launchFailsafe = intent.getExtras().getBoolean(TERMUX_ACTIVITY.EXTRA_FAILSAFE_SESSION, false);
@@ -579,6 +581,14 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         storeButton.setOnClickListener(v -> {
             getDrawer().closeDrawers();
             ActivityUtils.startActivity(this, new Intent(this, LuminaStoreActivity.class));
+        });
+    }
+
+    private void setLuminaSettingsButtonView() {
+        ImageButton luminaSettingsButton = findViewById(R.id.lumina_settings_button);
+        luminaSettingsButton.setOnClickListener(v -> {
+            getDrawer().closeDrawers();
+            ActivityUtils.startActivity(this, new Intent(this, LuminaSettingsActivity.class));
         });
     }
 

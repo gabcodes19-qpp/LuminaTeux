@@ -1,9 +1,11 @@
 package com.termux.app.lumina;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,7 +17,7 @@ import com.google.android.material.color.DynamicColors;
 import com.termux.R;
 
 /**
- * One-tap module & AI CLI store.
+ * One-tap module, AI CLI and proot-Linux store.
  *
  * Launched from the drawer of TermuxActivity. Each catalog item installs
  * through {@link LuminaModuleInstaller}, which runs commands in the Termux
@@ -23,18 +25,11 @@ import com.termux.R;
  */
 public class LuminaStoreActivity extends AppCompatActivity {
 
-    /** Material You dynamic color flag. Default off (dark-first theme). */
-    private static boolean sDynamicColorsEnabled = false;
-
-    public static void setDynamicColorsEnabled(boolean enabled) {
-        sDynamicColorsEnabled = enabled;
-    }
-
     private TextView mLogView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (sDynamicColorsEnabled) {
+        if (LuminaPrefs.dynamicColors(this)) {
             DynamicColors.applyToActivitiesIfAvailable(getApplication());
         }
         super.onCreate(savedInstanceState);
@@ -43,6 +38,10 @@ public class LuminaStoreActivity extends AppCompatActivity {
         ListView list = findViewById(R.id.lumina_store_list);
         LuminaStoreAdapter adapter = new LuminaStoreAdapter(this, LuminaCatalog.getItems(), this::confirmInstall);
         list.setAdapter(adapter);
+
+        ImageButton settings = findViewById(R.id.lumina_store_settings);
+        settings.setOnClickListener(v ->
+                startActivity(new Intent(this, LuminaSettingsActivity.class)));
     }
 
     private void confirmInstall(LuminaCatalog.Item item) {

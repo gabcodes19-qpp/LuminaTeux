@@ -259,4 +259,18 @@
     <string name="lumina_intro_start">Get started</string>
     <string name="lumina_intro_credit">Built on open-source Termux · GPLv3</string>
 
+    <!-- LuminaTeux Settings -->
+    <string name="lumina_settings_title">Lumina settings</string>
+    <string name="lumina_settings_subtitle">Tune LuminaTeux to your taste</string>
+    <string name="lumina_settings_dynamic_title">Dynamic colors</string>
+    <string name="lumina_settings_dynamic_summary">Material You — follow your wallpaper colors</string>
+    <string name="lumina_settings_theme_title">Lumina terminal theme</string>
+    <string name="lumina_settings_theme_summary">Indigo/cyan colors, extra-key bar, bar cursor</string>
+    <string name="lumina_settings_apply">Apply theme now</string>
+    <string name="lumina_settings_dynamic_applied">Dynamic colors updated</string>
+    <string name="lumina_settings_theme_on">Lumina theme enabled</string>
+    <string name="lumina_settings_theme_off">Classic theme restored</string>
+    <string name="lumina_settings_applied">Terminal theme applied</string>
+    <string name="lumina_settings_credit">LuminaTeux · GPLv3 · built on Termux</string>
+
 </resources>

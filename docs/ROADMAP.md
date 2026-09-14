@@ -24,6 +24,10 @@ Linux terminal — with a one-tap module/AI store instead of `pkg install` typin
 ## Phase 1 — Module + AI Store (v0.2) ⭐ the big one
 
 - **Module Store UI** — card-based catalog (like an app store), one-tap install / update / uninstall with size shown first ✅ *v1 shipped: `LuminaStoreActivity` + drawer "Store" button + `LuminaModuleInstaller` engine*
+- **Terminal styling** ✅ *v1.2: indigo/cyan `colors.properties` + `termux.properties` (extra-key bar, bar cursor), navy drawer/extra-key chrome, branded intro*
+- **Settings toggles** ✅ *v1.2: `LuminaSettingsActivity` — Material You dynamic colors + terminal theme toggle + apply-now*
+- **Proot Linux** ✅ *v1.2: proot-distro + Ubuntu / Kali / Arch / Debian one-tap in the Store*
+- **Dev tools plugins** ✅ *v1.2: ripgrep, tmux, neovim, htop, jq, zsh, neofetch, cmatrix*
 - **Guided setup wizard** — "What are you here for?" (Coding / Web dev / Networking / Security / Automation) → auto-installs the matching bundle
 - **One-tap AI CLIs:**
   | CLI | Runtime | Install path in Termux | Free providers |

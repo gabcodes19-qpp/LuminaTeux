@@ -131,8 +131,8 @@ public final class TermuxService extends Service implements AppShell.AppShellCli
         // Run again in case service is already started and onCreate() is not called
         runStartForeground();
 
-        // LuminaTeux: (re)install the terminal welcome banner (motd) in the background.
-        new Thread(LuminaBanner::installMotd, "LuminaMotd").start();
+        // LuminaTeux: (re)install the terminal banner + theme (motd, colors, extra keys).
+        new Thread(() -> LuminaBanner.installAll(false), "LuminaSetup").start();
 
         String action = null;
         if (intent != null) {
