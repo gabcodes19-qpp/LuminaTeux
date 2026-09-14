@@ -28,6 +28,10 @@ Linux terminal — with a one-tap module/AI store instead of `pkg install` typin
 - **Settings toggles** ✅ *v1.2: `LuminaSettingsActivity` — Material You dynamic colors + terminal theme toggle + apply-now*
 - **Proot Linux** ✅ *v1.2: proot-distro + Ubuntu / Kali / Arch / Debian one-tap in the Store*
 - **Dev tools plugins** ✅ *v1.2: ripgrep, tmux, neovim, htop, jq, zsh, neofetch, cmatrix*
+- **Command palette** ✅ *v1.3: `LuminaPaletteActivity` — searchable quick actions + shell commands*
+- **Tabs / session manager** ✅ *v1.3: drawer sessions header with live count + one-tap "+ New" tab*
+- **Guided setup wizard** ✅ *v1.3: `LuminaWizardActivity` — category bundles on first run*
+- **Backup/restore** ✅ *v1.3: `LuminaBackupActivity` — tarball of configs + package list*
 - **Guided setup wizard** — "What are you here for?" (Coding / Web dev / Networking / Security / Automation) → auto-installs the matching bundle
 - **One-tap AI CLIs:**
   | CLI | Runtime | Install path in Termux | Free providers |

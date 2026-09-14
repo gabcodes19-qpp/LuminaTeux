@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.termux.R;
 import com.termux.app.TermuxActivity;
-
 /**
  * First-run intro / splash. The launcher entry point of LuminaTeux.
  * Shows branding + ASCII banner once, then forwards to the terminal.
@@ -38,7 +37,7 @@ public class LuminaIntroActivity extends AppCompatActivity {
 
         findViewById(R.id.lumina_intro_start).setOnClickListener(v -> {
             prefs.edit().putBoolean(KEY_INTRO_SHOWN, true).apply();
-            startActivity(new Intent(this, TermuxActivity.class));
+            startActivity(new Intent(this, LuminaWizardActivity.class));
             finish();
         });
     }

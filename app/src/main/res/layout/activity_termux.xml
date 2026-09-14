@@ -75,6 +75,44 @@
                         android:background="@null"
                         android:contentDescription="@string/lumina_settings_title"
                         app:tint="?attr/termuxActivityDrawerImageTint" />
+
+                    <ImageButton
+                        android:id="@+id/palette_button"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_palette"
+                        android:background="@null"
+                        android:contentDescription="@string/lumina_palette_title"
+                        app:tint="?attr/termuxActivityDrawerImageTint" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/session_count_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/lumina_sessions_label"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="?attr/termuxActivityDrawerImageTint" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/new_tab_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="@string/lumina_new_tab"
+                        android:textSize="12sp"
+                        app:cornerRadius="18dp" />
                 </LinearLayout>
 
                 <ListView

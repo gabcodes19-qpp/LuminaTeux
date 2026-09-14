@@ -273,4 +273,45 @@
     <string name="lumina_settings_applied">Terminal theme applied</string>
     <string name="lumina_settings_credit">LuminaTeux · GPLv3 · built on Termux</string>
 
+    <!-- LuminaTeux Tabs / sessions -->
+    <string name="lumina_sessions_label">Sessions</string>
+    <string name="lumina_sessions_count">Sessions (%1$d)</string>
+    <string name="lumina_new_tab">+ New</string>
+
+    <!-- LuminaTeux Command palette -->
+    <string name="lumina_palette_title">Command palette</string>
+    <string name="lumina_palette_hint">Type a command or action…</string>
+    <string name="lumina_palette_new_session">New session</string>
+    <string name="lumina_palette_new_session_sub">Open the terminal</string>
+    <string name="lumina_palette_store">Open Store</string>
+    <string name="lumina_palette_store_sub">One-tap modules, AI &amp; proot Linux</string>
+    <string name="lumina_palette_settings">Open settings</string>
+    <string name="lumina_palette_settings_sub">Dynamic colors &amp; terminal theme</string>
+    <string name="lumina_palette_backup">Backup &amp; restore</string>
+    <string name="lumina_palette_backup_sub">Save or restore your setup</string>
+    <string name="lumina_palette_update">Update packages</string>
+    <string name="lumina_palette_upgrade">Upgrade packages</string>
+    <string name="lumina_palette_neofetch">System info</string>
+    <string name="lumina_palette_ubuntu">Open Ubuntu shell</string>
+
+    <!-- LuminaTeux Setup wizard -->
+    <string name="lumina_wizard_title">Welcome to LuminaTeux</string>
+    <string name="lumina_wizard_subtitle">What are you here for? Pick what to install.</string>
+    <string name="lumina_wizard_coding">💻 Coding — Python, Node.js, Git, Neovim</string>
+    <string name="lumina_wizard_web">🌐 Web dev — Node.js, PHP, Git, jq</string>
+    <string name="lumina_wizard_netsec">🔐 Networking &amp; security — Nmap, OpenSSH</string>
+    <string name="lumina_wizard_automation">⚙️ Automation — Python, jq, curl</string>
+    <string name="lumina_wizard_ai">🤖 AI tools — Gemini CLI</string>
+    <string name="lumina_wizard_proot">🐧 Proot Linux — Ubuntu</string>
+    <string name="lumina_wizard_install">Install selected</string>
+    <string name="lumina_wizard_skip">Skip for now</string>
+    <string name="lumina_wizard_installing">Setting up your environment…</string>
+
+    <!-- LuminaTeux Backup -->
+    <string name="lumina_backup_title">Backup &amp; restore</string>
+    <string name="lumina_backup_subtitle">Save or restore your terminal setup</string>
+    <string name="lumina_backup_explain">Backup packages your dotfiles and Termux configuration into ~/lumateux-backup-latest.tar.gz, and saves your installed package list. Restore extracts the latest backup.</string>
+    <string name="lumina_backup_now">Backup now</string>
+    <string name="lumina_backup_restore">Restore latest backup</string>
+
 </resources>

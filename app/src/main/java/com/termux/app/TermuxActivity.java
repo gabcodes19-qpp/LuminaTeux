@@ -24,11 +24,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.termux.R;
 import com.termux.app.api.file.FileReceiverActivity;
 import com.termux.app.lumina.LuminaBanner;
+import com.termux.app.lumina.LuminaPaletteActivity;
 import com.termux.app.lumina.LuminaSettingsActivity;
 import com.termux.app.lumina.LuminaStoreActivity;
 import com.termux.app.terminal.TermuxActivityRootView;
@@ -140,6 +142,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
      * The termux sessions list controller.
      */
     TermuxSessionsListViewController mTermuxSessionListViewController;
+    private TextView mSessionCountLabel;
 
     /**
      * The {@link TermuxActivity} broadcast receiver for various things like terminal style configuration changes.
@@ -251,6 +254,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         setSettingsButtonView();
         setStoreButtonView();
         setLuminaSettingsButtonView();
+        setPaletteButtonView();
 
         setNewSessionButtonView();
 
@@ -509,6 +513,12 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         termuxSessionsListView.setAdapter(mTermuxSessionListViewController);
         termuxSessionsListView.setOnItemClickListener(mTermuxSessionListViewController);
         termuxSessionsListView.setOnItemLongClickListener(mTermuxSessionListViewController);
+
+        // LuminaTeux tabs header: session count + one-tap new tab.
+        mSessionCountLabel = findViewById(R.id.session_count_label);
+        findViewById(R.id.new_tab_button).setOnClickListener(v ->
+                mTermuxTerminalSessionActivityClient.addNewSession(false, null));
+        updateSessionCountLabel();
     }
 
 
@@ -589,6 +599,14 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
         luminaSettingsButton.setOnClickListener(v -> {
             getDrawer().closeDrawers();
             ActivityUtils.startActivity(this, new Intent(this, LuminaSettingsActivity.class));
+        });
+    }
+
+    private void setPaletteButtonView() {
+        ImageButton paletteButton = findViewById(R.id.palette_button);
+        paletteButton.setOnClickListener(v -> {
+            getDrawer().closeDrawers();
+            ActivityUtils.startActivity(this, new Intent(this, LuminaPaletteActivity.class));
         });
     }
 
@@ -879,6 +897,13 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
 
     public void termuxSessionListNotifyUpdated() {
         mTermuxSessionListViewController.notifyDataSetChanged();
+        updateSessionCountLabel();
+    }
+
+    private void updateSessionCountLabel() {
+        if (mSessionCountLabel == null) return;
+        int count = mTermuxService != null ? mTermuxService.getTermuxSessionsSize() : 0;
+        mSessionCountLabel.setText(getString(R.string.lumina_sessions_count, count));
     }
 
     public boolean isVisible() {

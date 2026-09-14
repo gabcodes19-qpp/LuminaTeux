@@ -29,6 +29,11 @@ public final class LuminaModuleInstaller {
     }
 
     public static void install(final LuminaCatalog.Item item, final Listener listener) {
+        runCommands(item.commands, listener);
+    }
+
+    /** Run an arbitrary list of commands in the Termux environment with live output. */
+    public static void runCommands(final String[] commands, final Listener listener) {
         if (!sBusy.compareAndSet(false, true)) {
             listener.onComplete(false, "busy");
             return;
@@ -36,7 +41,7 @@ public final class LuminaModuleInstaller {
         new Thread(() -> {
             boolean ok = true;
             try {
-                for (String command : item.commands) {
+                for (String command : commands) {
                     listener.onLine("$ " + command);
                     int code = runCommand(command, listener);
                     if (code != 0) {

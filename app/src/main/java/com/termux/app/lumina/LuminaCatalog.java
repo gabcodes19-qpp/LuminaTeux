@@ -39,6 +39,26 @@ public final class LuminaCatalog {
 
     private LuminaCatalog() {}
 
+    /** Command bundles for the first-run setup wizard, keyed by category tag. */
+    public static String[] getBundleCommands(String key) {
+        switch (key) {
+            case "coding":
+                return new String[]{"pkg install -y python nodejs-lts git neovim ripgrep"};
+            case "web":
+                return new String[]{"pkg install -y nodejs-lts git php jq ripgrep"};
+            case "netsec":
+                return new String[]{"pkg install -y openssh nmap git jq"};
+            case "automation":
+                return new String[]{"pkg install -y python jq curl"};
+            case "ai":
+                return new String[]{"pkg install -y nodejs-lts && npm install -g @google/gemini-cli"};
+            case "proot":
+                return new String[]{"pkg install -y proot-distro && proot-distro install ubuntu"};
+            default:
+                return null;
+        }
+    }
+
     public static List<Item> getItems() {
         List<Item> items = new ArrayList<>();
 
@@ -58,6 +78,9 @@ public final class LuminaCatalog {
         items.add(new Item("openssh", "OpenSSH", "SSH server and client",
                 CATEGORY_ESSENTIALS, "~15 MB", true,
                 "pkg install -y openssh"));
+        items.add(new Item("nmap", "Nmap", "Network discovery and security scanner",
+                CATEGORY_TOOLS, "~20 MB", true,
+                "pkg install -y nmap"));
         items.add(new Item("rust", "Rust", "Rust toolchain with cargo",
                 CATEGORY_ESSENTIALS, "~250 MB", true,
                 "pkg install -y rust"));
